@@ -81,7 +81,7 @@
           <!-- Темная строка с картами -->
           <span class="card__select">
             Розничный бизнес за
-            <select name="format" id="format">
+            <select name="format" id="format" onchange="changeContent()">
               <option>февраль</option>
               <option>март</option>
               <option>апрель</option>
@@ -93,7 +93,7 @@
           <div class="card__wrapper">
             <header class="card__header">
               <h2 class="card__title">
-                <strong>Всего клиентов</strong>
+                <strong id="card__text">Всего клиентов</strong>
               </h2>
             </header>
             <div class="card__body" id="chart-container">
@@ -175,6 +175,36 @@
         </div>
       </div>
       <!-- Светлая строка с картами -->
+      <div class="cards__container">
+        <div class="button__container">
+          <button>
+            <a href="#">Потребительские кредиты</a>
+          </button>
+          <button>
+            <a href="#">Дебетовые карты</a>
+          </button>
+          <button>
+            <a href="#">Кредитные карты</a>
+          </button>
+          <button>
+            <a href="#">Ипотека</a>
+          </button>
+          <button>
+            <a href="#">N-продукт</a>
+          </button>
+          <button>
+            <a href="#">N-продукт</a>
+          </button>
+          <button>
+            <a href="#">N-продукт</a>
+          </button>
+          <button>
+            <a href="#">N-продукт</a>
+          </button>
+          <button>
+            <a href="#">N-продукт</a>
+          </button>
+        </div>
       <div class="cards-row">
         <div class="card" id="card5">
           <div class="card__wrapper">
@@ -255,6 +285,8 @@
           </div>
         </div>
       </div>
+    </div>
+      
     </div>
   </main>
 
@@ -434,6 +466,18 @@
     new Card('card7', card7Options).init();
     new Card('card8', card8Options).init();
 
+    function changeContent() {
+    const formatSelect = document.getElementById("format");
+    const totalCustomers = document.getElementById("card__text");
+
+    if (formatSelect.value === "февраль") {
+      totalCustomers.textContent = "Клиенты в феврале";
+    } else if (formatSelect.value === "март") {
+      totalCustomers.textContent = "Клиенты в марте";
+    } else if (formatSelect.value === "апрель") {
+      totalCustomers.textContent = "Клиенты в апреле";
+    }
+  }
   </script>
 </body>
 </html>

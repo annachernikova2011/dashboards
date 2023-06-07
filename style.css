@@ -322,3 +322,24 @@ margin-right: var(--common-margin);
   font-weight: 600;
   color: #5A56E9;
 }
+
+.cards__container {
+  margin-top: 103px;
+}
+.cards__container button {
+  height: 44px;
+  background-color: #EFEEF2;
+  border-radius: 2225px;
+  border: none;
+  padding: 10px 30px;
+}
+.cards__container button a {
+  text-decoration: none;
+  color: #858585 ;
+  font-size: 20px;
+}
+.button__container {
+display: flex;
+gap: 12px;
+flex-wrap: wrap;
+}
