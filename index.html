@@ -15,28 +15,78 @@
 <body>
   <main class="main"> 
     <aside class="sidebar">
-      <div class="fork"></div>
+      <img src="img/arrow.svg" alt="">
       <svg class="sidebar__logo" width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M22.4209 1.21423L12.1431 11.7676H22.4209V32.7857L32.7859 22.321V1.21423H22.4209Z" fill="#E86630"/>
         <path d="M11.5793 32.7857L21.8572 22.2323H11.5793V1.21423L1.21436 11.6789V32.7857H11.5793Z" fill="white"/>
         </svg>        
-      <ul class="sidebar__list">
-        <li class="sidebar__item">
-          Потребительские кредиты
-          <ul class="sidebar__submenu">
-            <li class="sidebar__submenu-item">Эффективность онлайн-площадок</li>
-            <li class="sidebar__submenu-item">Выдача продуктов</li>
-            <li class="sidebar__submenu-item">Эффективность онлайн-банка</li>
-          </ul>
-
-        </li>
-        <li class="sidebar__item">Дебетовые карты</li>
-        <li class="sidebar__item">Кредитные карты</li>
-        <li class="sidebar__item">Ипотека</li>
-      </ul>
-    </aside>
-     
-    <div class="cards-wrapper" id="app-root">
+        <nav class="sidebar__nav">
+          <ul class="sidebar__list">
+            <li class="sidebar__item">
+              <div class="sidebar__item--wrapper">
+                <img src="img/roznbuisness.svg" alt="">
+                <a class="sidebar__item__article" href="#">Розничный бизнес
+                  <i class="arrow down"></i>
+                </a>
+              </div>
+              <ul class="sidebar__submenu">
+                <div>
+                  <div class="sidebar__submenu--wrapper" >
+                    <li class="sidebar__item active">
+                      <a href="#">Потребительские кредиты
+                        <i class="arrow down"></i>
+                      </a>
+                      <ul class="sidebar__submenu">
+                        <li class="sidebar__item active">
+                          <a href="#">Эффективность онлайн-площадок</a>
+                        </li>
+                        <li class="sidebar__item active">
+                          <a href="#">Выдача продуктов</a>
+                        </li>
+                        <li class="sidebar__item active">
+                          <a href="#">Эффективность онлайн-банка</a>
+                        </li>
+                      </ul>
+                    </li>
+                <li class="sidebar__item active">
+                  <a href="#">Дебетовые карты
+                    <i class="arrow down"></i>
+                  </a>
+                </li>
+                <li class="sidebar__item active">
+                  <a href="#">Кредитные карты
+                    <i class="arrow down"></i>
+                  </a>
+                </li>
+                <li class="sidebar__item active">
+                  <a href="#">Ипотека
+                    <i class="arrow down"></i>
+                  </a>
+                </li>
+              </div>
+            </div>
+              </ul>
+            </li>
+            <div class="sidebar__item--wrapper">
+              <img src="img/malbuisness.svg" alt="">
+              <li class="sidebar__item">
+                <a class="sidebar__item__article" href="#">Малый и средний бизнес</a>
+              </li>
+            </div>
+            </ul>
+          </nav>
+        </aside>
+    
+        <div class="cards-wrapper" id="app-root">
+          <!-- Темная строка с картами -->
+          <span class="card__select">
+            Розничный бизнес за
+            <select name="format" id="format">
+              <option>февраль</option>
+              <option>март</option>
+              <option>апрель</option>
+            </select>
+          </span>
       <!-- Темная строка с картами -->
       <div class="cards-row" id="cards_row">
         <div class="card" id="card1">
