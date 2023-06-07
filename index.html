@@ -6,122 +6,383 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+
+    /* тут стили из файла */
+
+  </style>
 </head>
 <body>
+  <main class="main"> 
+    <aside class="sidebar">
+      <svg class="sidebar__logo" width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M22.4209 1.21423L12.1431 11.7676H22.4209V32.7857L32.7859 22.321V1.21423H22.4209Z" fill="#E86630"/>
+        <path d="M11.5793 32.7857L21.8572 22.2323H11.5793V1.21423L1.21436 11.6789V32.7857H11.5793Z" fill="white"/>
+        </svg>        
+      <ul class="sidebar__list">
+        <li class="sidebar__item">
+          Потребительские кредиты
+          <ul class="sidebar__submenu">
+            <li class="sidebar__submenu-item">Эффективность онлайн-площадок</li>
+            <li class="sidebar__submenu-item">Выдача продуктов</li>
+            <li class="sidebar__submenu-item">Эффективность онлайн-банка</li>
+          </ul>
 
-  <div class="cards-wrapper" id="app-root">
-    
-    <div class="cards-row" id="cards_row">
-      <div class="card" id="card">
-        <div class="card__wrapper">
-          <header class="card__header">
-            <h2 class="card__title" id="c_title">
-              Заявки от новых клиентов
-            </h2>
-          </header>
-          <div class="card__body" id="chart-container">
+        </li>
+        <li class="sidebar__item">Дебетовые карты</li>
+        <li class="sidebar__item">Кредитные карты</li>
+        <li class="sidebar__item">Ипотека</li>
+      </ul>
+    </aside>
+     
+    <div class="cards-wrapper" id="app-root">
+      <!-- Темная строка с картами -->
+      <div class="cards-row" id="cards_row">
+        <div class="card" id="card1">
+          <div class="card__wrapper">
+            <header class="card__header">
+              <h2 class="card__title">
+                <strong>Всего клиентов</strong>
+              </h2>
+            </header>
+            <div class="card__body" id="chart-container">
+              <div class="stat">
+                <div class="stat__num">
+                  <span class="stat__num-percent main-value">1 млн <span class="badge badge_up badge_num">1.5</span></span> 
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card" id="card2">
+          <div class="card__wrapper">
+            <header class="card__header">
+              <h2 class="card__title">
+                Активные клиенты
+              </h2>
+            </header>
+            <div class="card__body" id="c_body">
+              <div class="stat">
+                <div class="stat__num">
+                  <span class="stat__num-percent main-value"><span id="num2">75</span>% <span class="badge badge_up badge_num">3</span></span> 
+                  <span class="stat__num-quantity quantity">750 000</span>
+                </div>
+                <div class="stat__diagram">
+                  <div id="main" style="width: 100px;height: 100px;"></div>       
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card" id="card3">
+          <div class="card__wrapper">
+            <header class="card__header">
+              <h2 class="card__title">
+                Активные клиенты<br>
+                онлайн-банкинга в месяц
+              </h2>
+            </header>
+            <div class="card__body" id="c_body">
+              <div class="stat">
+                <div class="stat__num">
+                  <span class="stat__num-percent main-value">70% <span class="badge badge_up badge_num">4</span></span> 
+                  <span class="stat__num-quantity quantity">700 000</span>
+                </div>
+                <div class="stat__diagram">
+                  <svg width="85" height="85" viewBox="0 0 85 85" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M85 42.4996C85 65.9717 65.9721 84.9996 42.5 84.9996C19.0279 84.9996 0 65.9717 0 42.4996C0 19.0275 19.0279 -0.000427246 42.5 -0.000427246C65.9721 -0.000427246 85 19.0275 85 42.4996ZM12.75 42.4996C12.75 58.93 26.0695 72.2496 42.5 72.2496C58.9305 72.2496 72.25 58.93 72.25 42.4996C72.25 26.0691 58.9305 12.7496 42.5 12.7496C26.0695 12.7496 12.75 26.0691 12.75 42.4996Z" fill="white"/>
+                    <path d="M42.5 -0.000427246C50.9057 -0.000427146 59.1226 2.49215 66.1117 7.16211C73.1008 11.8321 78.5482 18.4697 81.7649 26.2355C84.9816 34.0014 85.8232 42.5467 84.1834 50.7909C82.5435 59.0351 78.4958 66.6079 72.552 72.5516C66.6083 78.4953 59.0355 82.5431 50.7913 84.1829C42.5471 85.8228 34.0018 84.9812 26.236 81.7645C18.4701 78.5477 11.8325 73.1004 7.16254 66.1113C2.49258 59.1222 -2.00474e-07 50.9053 0 42.4996H12.75C12.75 48.3836 14.4948 54.1354 17.7638 59.0278C21.0328 63.9202 25.6791 67.7333 31.1152 69.985C36.5513 72.2367 42.533 72.8258 48.3039 71.6779C54.0749 70.53 59.3758 67.6966 63.5364 63.536C67.697 59.3754 70.5304 54.0744 71.6784 48.3035C72.8263 42.5326 72.2371 36.5508 69.9854 31.1147C67.7337 25.6786 63.9206 21.0323 59.0282 17.7634C54.1359 14.4944 48.384 12.7496 42.5 12.7496V-0.000427246Z" fill="#54BBFF"/>
+                  </svg>          
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card" id="card4">
+          <div class="card__wrapper">
+            <header class="card__header">
+              <h2 class="card__title">
+                Активные клиенты<br>
+                онлайн-банкинга в день
+              </h2>
+            </header>
+            <div class="card__body" id="c_body">
+              <div class="stat">
+                <div class="stat__num">
+                  <span class="stat__num-percent main-value">25% <span class="badge badge_up badge_num">2</span></span> 
+                  <span class="stat__num-quantity quantity">250 000</span>
+                </div>
+                <div class="stat__diagram">
+                  <svg width="85" height="85" viewBox="0 0 85 85" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M85 42.4996C85 65.9717 65.9721 84.9996 42.5 84.9996C19.0279 84.9996 0 65.9717 0 42.4996C0 19.0275 19.0279 -0.000427246 42.5 -0.000427246C65.9721 -0.000427246 85 19.0275 85 42.4996ZM12.75 42.4996C12.75 58.93 26.0695 72.2496 42.5 72.2496C58.9305 72.2496 72.25 58.93 72.25 42.4996C72.25 26.0691 58.9305 12.7496 42.5 12.7496C26.0695 12.7496 12.75 26.0691 12.75 42.4996Z" fill="white"/>
+                    <path d="M42.5 -0.000427246C50.9057 -0.000427146 59.1226 2.49215 66.1117 7.16211C73.1008 11.8321 78.5482 18.4697 81.7649 26.2355C84.9816 34.0014 85.8232 42.5467 84.1834 50.7909C82.5435 59.0351 78.4958 66.6079 72.552 72.5516C66.6083 78.4953 59.0355 82.5431 50.7913 84.1829C42.5471 85.8228 34.0018 84.9812 26.236 81.7645C18.4701 78.5477 11.8325 73.1004 7.16254 66.1113C2.49258 59.1222 -2.00474e-07 50.9053 0 42.4996H12.75C12.75 48.3836 14.4948 54.1354 17.7638 59.0278C21.0328 63.9202 25.6791 67.7333 31.1152 69.985C36.5513 72.2367 42.533 72.8258 48.3039 71.6779C54.0749 70.53 59.3758 67.6966 63.5364 63.536C67.697 59.3754 70.5304 54.0744 71.6784 48.3035C72.8263 42.5326 72.2371 36.5508 69.9854 31.1147C67.7337 25.6786 63.9206 21.0323 59.0282 17.7634C54.1359 14.4944 48.384 12.7496 42.5 12.7496V-0.000427246Z" fill="#54BBFF"/>
+                  </svg>          
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-      <div class="card" id="card3">
-        <div class="card__wrapper">
-          <header class="card__header">
-            <h2 class="card__title" id="c_title">
-              Динамика <strong>Февраля</strong><br>
-              к среднему за 3 месяца
-            </h2>
-          </header>
-          <div class="card__body" id="c_body">
-            
-            <div class="stat">
-              <div class="stat__num">
-                <span class="stat__num-percent">5% <span class="badge badge_up badge_num">3</span></span> 
-                <span class="stat__num-quantity">750000</span>
-              </div>
-              <div class="stat__diagram">
-                <svg width="85" height="85" viewBox="0 0 85 85" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M85 42.4996C85 65.9717 65.9721 84.9996 42.5 84.9996C19.0279 84.9996 0 65.9717 0 42.4996C0 19.0275 19.0279 -0.000427246 42.5 -0.000427246C65.9721 -0.000427246 85 19.0275 85 42.4996ZM12.75 42.4996C12.75 58.93 26.0695 72.2496 42.5 72.2496C58.9305 72.2496 72.25 58.93 72.25 42.4996C72.25 26.0691 58.9305 12.7496 42.5 12.7496C26.0695 12.7496 12.75 26.0691 12.75 42.4996Z" fill="white"/>
-                  <path d="M42.5 -0.000427246C50.9057 -0.000427146 59.1226 2.49215 66.1117 7.16211C73.1008 11.8321 78.5482 18.4697 81.7649 26.2355C84.9816 34.0014 85.8232 42.5467 84.1834 50.7909C82.5435 59.0351 78.4958 66.6079 72.552 72.5516C66.6083 78.4953 59.0355 82.5431 50.7913 84.1829C42.5471 85.8228 34.0018 84.9812 26.236 81.7645C18.4701 78.5477 11.8325 73.1004 7.16254 66.1113C2.49258 59.1222 -2.00474e-07 50.9053 0 42.4996H12.75C12.75 48.3836 14.4948 54.1354 17.7638 59.0278C21.0328 63.9202 25.6791 67.7333 31.1152 69.985C36.5513 72.2367 42.533 72.8258 48.3039 71.6779C54.0749 70.53 59.3758 67.6966 63.5364 63.536C67.697 59.3754 70.5304 54.0744 71.6784 48.3035C72.8263 42.5326 72.2371 36.5508 69.9854 31.1147C67.7337 25.6786 63.9206 21.0323 59.0282 17.7634C54.1359 14.4944 48.384 12.7496 42.5 12.7496V-0.000427246Z" fill="#54BBFF"/>
+      <!-- Светлая строка с картами -->
+      <div class="cards-row">
+        <div class="card" id="card5">
+          <div class="card__wrapper">
+            <header class="card__header">
+              <h2 class="card__title">
+                <strong>Заявки от новых клиентов</strong>
+              </h2>
+            </header>
+            <div class="card__body" id="chart-container">
+              <div class="stat">
+                <div class="stat__num">
+                  <span class="stat__num-percent">75% <span class="badge badge_up"></span></span> 
+                </div>
+                <div class="stat__diagram">
+                  <svg width="85" height="85" viewBox="0 0 85 85" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M85 42.4996C85 65.9717 65.9721 84.9996 42.5 84.9996C19.0279 84.9996 0 65.9717 0 42.4996C0 19.0275 19.0279 -0.000427246 42.5 -0.000427246C65.9721 -0.000427246 85 19.0275 85 42.4996ZM12.75 42.4996C12.75 58.93 26.0695 72.2496 42.5 72.2496C58.9305 72.2496 72.25 58.93 72.25 42.4996C72.25 26.0691 58.9305 12.7496 42.5 12.7496C26.0695 12.7496 12.75 26.0691 12.75 42.4996Z" fill="white"/>
+                    <path d="M42.5 -0.000427246C50.9057 -0.000427146 59.1226 2.49215 66.1117 7.16211C73.1008 11.8321 78.5482 18.4697 81.7649 26.2355C84.9816 34.0014 85.8232 42.5467 84.1834 50.7909C82.5435 59.0351 78.4958 66.6079 72.552 72.5516C66.6083 78.4953 59.0355 82.5431 50.7913 84.1829C42.5471 85.8228 34.0018 84.9812 26.236 81.7645C18.4701 78.5477 11.8325 73.1004 7.16254 66.1113C2.49258 59.1222 -2.00474e-07 50.9053 0 42.4996H12.75C12.75 48.3836 14.4948 54.1354 17.7638 59.0278C21.0328 63.9202 25.6791 67.7333 31.1152 69.985C36.5513 72.2367 42.533 72.8258 48.3039 71.6779C54.0749 70.53 59.3758 67.6966 63.5364 63.536C67.697 59.3754 70.5304 54.0744 71.6784 48.3035C72.8263 42.5326 72.2371 36.5508 69.9854 31.1147C67.7337 25.6786 63.9206 21.0323 59.0282 17.7634C54.1359 14.4944 48.384 12.7496 42.5 12.7496V-0.000427246Z" fill="#54BBFF"/>
                   </svg>          
+                </div>
               </div>
             </div>
-
           </div>
         </div>
-      </div>
-      <div class="card" id="card2">
-        <div class="card__wrapper">
-          <header class="card__header">
-            <h2 class="card__title" id="c_title">
-              Динамика <strong>Февраля</strong><br>
-              к среднему за 3 месяца
-            </h2>
-          </header>
-          <div class="card__body" id="c_body">
-            
-            <div class="stat">
-              <div class="stat__num">
-                <span class="stat__num-percent">5% <span class="badge badge_up badge_num">3</span></span> 
-                <span class="stat__num-quantity">750000</span>
-              </div>
-              <div class="stat__diagram">
-                <svg width="85" height="85" viewBox="0 0 85 85" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M85 42.4996C85 65.9717 65.9721 84.9996 42.5 84.9996C19.0279 84.9996 0 65.9717 0 42.4996C0 19.0275 19.0279 -0.000427246 42.5 -0.000427246C65.9721 -0.000427246 85 19.0275 85 42.4996ZM12.75 42.4996C12.75 58.93 26.0695 72.2496 42.5 72.2496C58.9305 72.2496 72.25 58.93 72.25 42.4996C72.25 26.0691 58.9305 12.7496 42.5 12.7496C26.0695 12.7496 12.75 26.0691 12.75 42.4996Z" fill="white"/>
-                  <path d="M42.5 -0.000427246C50.9057 -0.000427146 59.1226 2.49215 66.1117 7.16211C73.1008 11.8321 78.5482 18.4697 81.7649 26.2355C84.9816 34.0014 85.8232 42.5467 84.1834 50.7909C82.5435 59.0351 78.4958 66.6079 72.552 72.5516C66.6083 78.4953 59.0355 82.5431 50.7913 84.1829C42.5471 85.8228 34.0018 84.9812 26.236 81.7645C18.4701 78.5477 11.8325 73.1004 7.16254 66.1113C2.49258 59.1222 -2.00474e-07 50.9053 0 42.4996H12.75C12.75 48.3836 14.4948 54.1354 17.7638 59.0278C21.0328 63.9202 25.6791 67.7333 31.1152 69.985C36.5513 72.2367 42.533 72.8258 48.3039 71.6779C54.0749 70.53 59.3758 67.6966 63.5364 63.536C67.697 59.3754 70.5304 54.0744 71.6784 48.3035C72.8263 42.5326 72.2371 36.5508 69.9854 31.1147C67.7337 25.6786 63.9206 21.0323 59.0282 17.7634C54.1359 14.4944 48.384 12.7496 42.5 12.7496V-0.000427246Z" fill="#54BBFF"/>
-                  </svg>          
+        <div class="card" id="card6">
+          <div class="card__wrapper">
+            <header class="card__header">
+              <h2 class="card__title">
+                Январь &#8594; <strong>Февраль</strong><br>
+              </h2>
+            </header>
+            <div class="card__body" id="c_body">
+              <div class="stat">
+                <div class="stat__num">
+                  <span class="stat__num-percent">+5% <span class="badge badge_up"></span></span> 
+                </div>
               </div>
             </div>
-
           </div>
         </div>
-      </div>
-      <div class="card" id="card1">
-        <div class="card__wrapper">
-          <header class="card__header">
-            <h2 class="card__title" id="c_title">
-              Динамика <strong>Февраля</strong><br>
-              к среднему за 3 месяца
-            </h2>
-          </header>
-          <div class="card__body" id="c_body">
-            
-            <div class="stat">
-              <div class="stat__num">
-                <span class="stat__num-percent">5% <span class="badge badge_up badge_num">3</span></span> 
-                <span class="stat__num-quantity">750000</span>
-              </div>
-              <div class="stat__diagram">
-                <svg width="85" height="85" viewBox="0 0 85 85" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M85 42.4996C85 65.9717 65.9721 84.9996 42.5 84.9996C19.0279 84.9996 0 65.9717 0 42.4996C0 19.0275 19.0279 -0.000427246 42.5 -0.000427246C65.9721 -0.000427246 85 19.0275 85 42.4996ZM12.75 42.4996C12.75 58.93 26.0695 72.2496 42.5 72.2496C58.9305 72.2496 72.25 58.93 72.25 42.4996C72.25 26.0691 58.9305 12.7496 42.5 12.7496C26.0695 12.7496 12.75 26.0691 12.75 42.4996Z" fill="white"/>
-                  <path d="M42.5 -0.000427246C50.9057 -0.000427146 59.1226 2.49215 66.1117 7.16211C73.1008 11.8321 78.5482 18.4697 81.7649 26.2355C84.9816 34.0014 85.8232 42.5467 84.1834 50.7909C82.5435 59.0351 78.4958 66.6079 72.552 72.5516C66.6083 78.4953 59.0355 82.5431 50.7913 84.1829C42.5471 85.8228 34.0018 84.9812 26.236 81.7645C18.4701 78.5477 11.8325 73.1004 7.16254 66.1113C2.49258 59.1222 -2.00474e-07 50.9053 0 42.4996H12.75C12.75 48.3836 14.4948 54.1354 17.7638 59.0278C21.0328 63.9202 25.6791 67.7333 31.1152 69.985C36.5513 72.2367 42.533 72.8258 48.3039 71.6779C54.0749 70.53 59.3758 67.6966 63.5364 63.536C67.697 59.3754 70.5304 54.0744 71.6784 48.3035C72.8263 42.5326 72.2371 36.5508 69.9854 31.1147C67.7337 25.6786 63.9206 21.0323 59.0282 17.7634C54.1359 14.4944 48.384 12.7496 42.5 12.7496V-0.000427246Z" fill="#54BBFF"/>
-                  </svg>          
+        <div class="card" id="card7">
+          <div class="card__wrapper">
+            <header class="card__header">
+              <h2 class="card__title">
+                Динамика <strong>Февраля</strong><br>
+                к среднему за 3 месяца
+              </h2>
+            </header>
+            <div class="card__body" id="c_body">
+              <div class="stat">
+                <div class="stat__num">
+                  <span class="stat__num-percent">+5% <span class="badge badge_up"></span></span> 
+                </div>
               </div>
             </div>
-
+          </div>
+        </div>
+        <div class="card" id="card8">
+          <div class="card__wrapper">
+            <header class="card__header">
+              <h2 class="card__title">
+                Динамика за 3 месяца
+              </h2>
+            </header>
+            <div class="card__body">
+              <div class="stat">
+                <div class="stat__num">
+                  <span class="stat__num-percent">5% <span class="badge badge_up badge_num">3</span></span> 
+                  <span class="stat__num-quantity">750000</span>
+                </div>
+                <div class="stat__diagram">
+                  <svg width="85" height="85" viewBox="0 0 85 85" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M85 42.4996C85 65.9717 65.9721 84.9996 42.5 84.9996C19.0279 84.9996 0 65.9717 0 42.4996C0 19.0275 19.0279 -0.000427246 42.5 -0.000427246C65.9721 -0.000427246 85 19.0275 85 42.4996ZM12.75 42.4996C12.75 58.93 26.0695 72.2496 42.5 72.2496C58.9305 72.2496 72.25 58.93 72.25 42.4996C72.25 26.0691 58.9305 12.7496 42.5 12.7496C26.0695 12.7496 12.75 26.0691 12.75 42.4996Z" fill="white"/>
+                    <path d="M42.5 -0.000427246C50.9057 -0.000427146 59.1226 2.49215 66.1117 7.16211C73.1008 11.8321 78.5482 18.4697 81.7649 26.2355C84.9816 34.0014 85.8232 42.5467 84.1834 50.7909C82.5435 59.0351 78.4958 66.6079 72.552 72.5516C66.6083 78.4953 59.0355 82.5431 50.7913 84.1829C42.5471 85.8228 34.0018 84.9812 26.236 81.7645C18.4701 78.5477 11.8325 73.1004 7.16254 66.1113C2.49258 59.1222 -2.00474e-07 50.9053 0 42.4996H12.75C12.75 48.3836 14.4948 54.1354 17.7638 59.0278C21.0328 63.9202 25.6791 67.7333 31.1152 69.985C36.5513 72.2367 42.533 72.8258 48.3039 71.6779C54.0749 70.53 59.3758 67.6966 63.5364 63.536C67.697 59.3754 70.5304 54.0744 71.6784 48.3035C72.8263 42.5326 72.2371 36.5508 69.9854 31.1147C67.7337 25.6786 63.9206 21.0323 59.0282 17.7634C54.1359 14.4944 48.384 12.7496 42.5 12.7496V-0.000427246Z" fill="#54BBFF"/>
+                  </svg>          
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
+  </main>
 
-  </div>
 
   <script src="https://fastly.jsdelivr.net/npm/echarts@5.4.2/dist/echarts.min.js"></script>  
   <script src="script.js"></script>
   <script>
-    dashbordOptions = {
-      isWrapper: false, //false
-      wrapperTheme: 'light', //dark
-      // cardType: 'stat', //chartLine ???
-      cardTitleStyle: 'normal', //medium, big
-      cardTheme: 'normal', //dark, transparent
-      badge: {
-        isHidden: false, //false
-        style: 'up', // down
-        isNum: true, //false
+
+     // Числовые переменные для верхней строки (темной)
+     let card1Num = document.querySelector('#card1 .main-value'),
+        card2Num = document.getElementById('num2').textContent,
+        card2quantity = document.querySelector('#card2 .quantity').textContent = '750000',
+        card3Num = document.querySelector('#card3 .main-value'),
+        card3quantity = document.querySelector('#card3 .quantity'),
+        card4Num = document.querySelector('#card4 .main-value'),
+        card4quantity = document.querySelector('#card4 .quantity');
+
+    var chartDom = document.getElementById('main');
+    var myChart = echarts.init(chartDom);
+    var option;
+
+    option = {
+      tooltip: {
+        trigger: 'item'
+      },
+      legend: {
+        show: false,
+        top: '5%',
+        left: 'center'
+      },
+      series: [
+        {
+          color: ['#54BBFF', '#cccccc'], 
+          name: 'тест',
+          type: 'pie',
+          radius: ['65%', '90%'],
+          avoidLabelOverlap: false,
+          label: {
+            show: false,
+            position: 'center'
+          },
+          emphasis: {
+            label: {
+              show: false,
+              fontSize: 16,
+              fontWeight: 'medium'
+            }
+          },
+          labelLine: {
+            show: false
+          },
+          data: [
+          { value: (card2quantity * card2Num) / 100, name: 'Активные' },
+          { value: card2quantity, name: 'Всего' },
+          ]
+        }
+      ]
+    };
+
+    option && myChart.setOption(option);
+  </script>
+  <script>
+
+  //Опции стилей для каждой карточки (1-8) 
+
+    card1Options = {
+      isWrapper: true, // false  (Фон подложуи для карт (строки))
+      wrapperTheme: 'dark', // dark, ligth  (Цвет строки - фиолетовая или серая)
+      // cardType: 'stat', // chartLine, stat  (В разработке)
+      cardTitleStyle: 'normal', // normal, medium, big  (Стиль заголовка карты)
+      cardTheme: 'transparent', // normal, dark, transparent  (Отдельно тема для карточки, или фиолетовая или белая)
+      badge: { // значок со стрелкой рядом с процентом
+        isHidden: false, //false   (вкл/выкл)
+        style: 'up', // up, down  (зеленая/красная)
+        isNum: true, // true, false  (если есть число, то ставим true для отступа)
       }, 
     }
-    const card1 = new Dashbord('card1', 'Динамика <strong>Февраля</strong> к среднему за 3 месяца', dashbordOptions);
-    card1.init();
+
+    card2Options = {
+      isWrapper: true, // false
+      wrapperTheme: 'dark', // dark
+      // cardType: 'stat', // chartLine
+      cardTitleStyle: 'normal', // medium, big
+      cardTheme: 'normal', // dark, transparent
+      badge: {
+        isHidden: false, // false
+        style: 'up', // down
+        isNum: true, // false
+      }, 
+    }
+
+    card3Options = {
+      isWrapper: true, // false
+      wrapperTheme: 'dark', // dark
+      // cardType: 'stat', // chartLine
+      cardTitleStyle: 'normal', // medium, big
+      cardTheme: 'normal', // dark, transparent
+      badge: {
+        isHidden: false, // false
+        style: 'down', // down
+        isNum: true, // false
+      }, 
+    }
+
+    card4Options = {
+      isWrapper: true, // false
+      wrapperTheme: 'dark', // dark
+      // cardType: 'stat', // chartLine
+      cardTitleStyle: 'normal', // medium, big
+      cardTheme: 'normal', // dark, transparent
+      badge: {
+        isHidden: false, // false
+        style: 'up', // down
+        isNum: true, // false
+      }, 
+    }
+
+    card5Options = {
+      isWrapper: true, // false
+      wrapperTheme: 'light', // dark, ligth
+      // cardType: 'stat', // chartLine, stat
+      cardTitleStyle: 'normal', // normal, medium, big
+      cardTheme: 'transparent', // normal, dark, transparent
+      badge: {
+        isHidden: false, //false
+        style: 'up', // up, down
+        isNum: true, // true, false
+      }, 
+    }
+
+    card6Options = {
+      isWrapper: true, // false
+      wrapperTheme: 'light', // dark
+      // cardType: 'stat', // chartLine
+      cardTitleStyle: 'normal', // medium, big
+      cardTheme: 'normal', // dark, transparent
+      badge: {
+        isHidden: false, // false
+        style: 'up', // down
+        isNum: true, // false
+      }, 
+    }
+
+    card7Options = {
+      isWrapper: true, // false
+      wrapperTheme: 'light', // dark
+      // cardType: 'stat', // chartLine
+      cardTitleStyle: 'normal', // medium, big
+      cardTheme: 'normal', // dark, transparent
+      badge: {
+        isHidden: false, // false
+        style: 'up', // down
+        isNum: true, // false
+      }, 
+    }
+
+    card8Options = {
+      isWrapper: true, // false
+      wrapperTheme: 'light', // dark
+      // cardType: 'stat', // chartLine
+      cardTitleStyle: 'normal', // medium, big
+      cardTheme: 'normal', // dark, transparent
+      badge: {
+        isHidden: false, // false
+        style: 'up', // down
+        isNum: true, // false
+      }, 
+    }
+
+    //Инициализация каждой карты (указываем id и опции)
+    new Card('card1', card1Options).init();
+    new Card('card2', card2Options).init();
+    new Card('card3', card3Options).init();
+    new Card('card4', card4Options).init();
+    new Card('card5', card5Options).init();
+    new Card('card6', card6Options).init();
+    new Card('card7', card7Options).init();
+    new Card('card8', card8Options).init();
+
   </script>
 </body>
 </html>

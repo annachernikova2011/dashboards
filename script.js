@@ -1,8 +1,7 @@
-class Dashbord {
-    constructor(card, title, options) {
+class Card {
+    constructor(card, options) {
       this.card = document.getElementById(card);
       if (!this.card) return;
-      this.title = title;
       this.isCardWrapper = options.isWrapper;
       this.wrapperTheme = options.wrapperTheme;
       this.cardTitleStyle = options.cardTitleStyle;
@@ -23,7 +22,7 @@ class Dashbord {
       const cardTitle = this.card.querySelector('.card__title');
       if (!cardTitle) return;
       this.cardTheme === 'dark' ? this.card.classList.add('card_dark'): this.card.classList.remove('card_dark');
-      cardTitle.innerHTML = this.title;
+      this.cardTheme === 'transparent' ? this.card.classList.add('card_transparent'): this.card.classList.remove('card_transparent');
       
       switch (this.cardTitleStyle) {
         case 'medium':
@@ -43,7 +42,6 @@ class Dashbord {
       this.badgeIsHidden ? badge.classList.add('badge_hidden') : badge.classList.remove('badge_hidden');
       this.badgeStyle === 'up' ? badge.classList.add('badge_up') : badge.classList.add('badge_down');
       this.badgeIsNum ? badge.classList.add('badge_num') : badge.classList.remove('badge_num');
-      
     }
 
     init() {
