@@ -15,7 +15,7 @@
 <body>
   <main class="main"> 
     <aside class="sidebar">
-      <button id="sidebar-toggle">
+      <button class="sidebar-toggle">
         <img src="img/arrow.svg" alt="">
       </button>
       <svg class="sidebar__logo" width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -209,15 +209,16 @@
         </div>
         <div class="title__container">
           <img src="img/effect.svg" alt="">
-          <span>Эффективность онлайн площадок</span>
+          <span class = "title__container--span blue">Эффективность онлайн площадок</span>
         </div>
-      <div class="cards-row">
-        <div class="card" id="card5">
-          <div class="card__wrapper">
-            <header class="card__header">
-              <h2 class="card__title">
+      <div class="cards__row--container">
+        <div class="cards-row">
+          <div class="card" id="card5">
+            <div class="card__wrapper">
+              <header class="card__header">
+               <h2 class="card__title">
                 <strong>Потребительские кредиты</strong>
-              </h2>
+                </h2>
             </header>
             <div class="card__body" id="chart-container">
               <div class="stat">
@@ -374,7 +375,15 @@
         </div>
       </div>
     </div>
-      
+    </div>
+    <div class="title__container">
+      <img src="img/выдача.svg" alt="">
+      <span class="title__container--span yellow">Выдача продуктов</span>
+    </div>
+    <div class="title__container">
+      <img src="img/effect-online-bank.svg" alt="">
+      <span class="title__container--span violet">Эффективность онлайн-банка</span>
+    </div>
     </div>
   </main>
 
@@ -592,7 +601,9 @@
 }
 
 // скрытие/ раскрытие сайтбара
-
+document.querySelector('.sidebar .sidebar-toggle').addEventListener('click' , function() {
+  document.querySelector('.sidebar').classList.toggle('active')
+})
   </script>
 </body>
 </html>
