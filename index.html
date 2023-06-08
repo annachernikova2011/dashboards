@@ -15,7 +15,9 @@
 <body>
   <main class="main"> 
     <aside class="sidebar">
-      <img src="img/arrow.svg" alt="">
+      <button>
+        <img src="img/arrow.svg" alt="">
+      </button>
       <svg class="sidebar__logo" width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M22.4209 1.21423L12.1431 11.7676H22.4209V32.7857L32.7859 22.321V1.21423H22.4209Z" fill="#E86630"/>
         <path d="M11.5793 32.7857L21.8572 22.2323H11.5793V1.21423L1.21436 11.6789V32.7857H11.5793Z" fill="white"/>
@@ -177,40 +179,44 @@
       <!-- Светлая строка с картами -->
       <div class="cards__container">
         <div class="button__container">
-          <button>
-            <a href="#">Потребительские кредиты</a>
+          <button onclick="selectButton(this)">
+            Потребительские кредиты
           </button>
-          <button>
-            <a href="#">Дебетовые карты</a>
+          <button onclick="selectButton(this)">
+           Дебетовые карты
           </button>
-          <button>
-            <a href="#">Кредитные карты</a>
+          <button onclick="selectButton(this)">
+           Кредитные карты
           </button>
-          <button>
-            <a href="#">Ипотека</a>
+          <button onclick="selectButton(this)">
+            Ипотека
           </button>
-          <button>
-            <a href="#">N-продукт</a>
+          <button onclick="selectButton(this)">
+           N-продукт
           </button>
-          <button>
-            <a href="#">N-продукт</a>
+          <button onclick="selectButton(this)">
+            N-продукт
           </button>
-          <button>
-            <a href="#">N-продукт</a>
+          <button onclick="selectButton(this)">
+            N-продукт
           </button>
-          <button>
-            <a href="#">N-продукт</a>
+          <button onclick="selectButton(this)">
+            N-продукт
           </button>
-          <button>
-            <a href="#">N-продукт</a>
+          <button onclick="selectButton(this)">
+           N-продукт
           </button>
+        </div>
+        <div class="title__container">
+          <img src="img/effect.svg" alt="">
+          <span>Эффективность онлайн площадок</span>
         </div>
       <div class="cards-row">
         <div class="card" id="card5">
           <div class="card__wrapper">
             <header class="card__header">
               <h2 class="card__title">
-                <strong>Заявки от новых клиентов</strong>
+                <strong>Потребительские кредиты</strong>
               </h2>
             </header>
             <div class="card__body" id="chart-container">
@@ -256,6 +262,88 @@
               <div class="stat">
                 <div class="stat__num">
                   <span class="stat__num-percent">+5% <span class="badge badge_up"></span></span> 
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card" id="card8">
+          <div class="card__wrapper">
+            <header class="card__header">
+              <h2 class="card__title">
+                Динамика за 3 месяца
+              </h2>
+            </header>
+            <div class="card__body">
+              <div class="stat">
+                <div class="stat__num">
+                  <span class="stat__num-percent">5% <span class="badge badge_up badge_num">3</span></span> 
+                  <span class="stat__num-quantity">750000</span>
+                </div>
+                <div class="stat__diagram">
+                  <svg width="85" height="85" viewBox="0 0 85 85" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M85 42.4996C85 65.9717 65.9721 84.9996 42.5 84.9996C19.0279 84.9996 0 65.9717 0 42.4996C0 19.0275 19.0279 -0.000427246 42.5 -0.000427246C65.9721 -0.000427246 85 19.0275 85 42.4996ZM12.75 42.4996C12.75 58.93 26.0695 72.2496 42.5 72.2496C58.9305 72.2496 72.25 58.93 72.25 42.4996C72.25 26.0691 58.9305 12.7496 42.5 12.7496C26.0695 12.7496 12.75 26.0691 12.75 42.4996Z" fill="white"/>
+                    <path d="M42.5 -0.000427246C50.9057 -0.000427146 59.1226 2.49215 66.1117 7.16211C73.1008 11.8321 78.5482 18.4697 81.7649 26.2355C84.9816 34.0014 85.8232 42.5467 84.1834 50.7909C82.5435 59.0351 78.4958 66.6079 72.552 72.5516C66.6083 78.4953 59.0355 82.5431 50.7913 84.1829C42.5471 85.8228 34.0018 84.9812 26.236 81.7645C18.4701 78.5477 11.8325 73.1004 7.16254 66.1113C2.49258 59.1222 -2.00474e-07 50.9053 0 42.4996H12.75C12.75 48.3836 14.4948 54.1354 17.7638 59.0278C21.0328 63.9202 25.6791 67.7333 31.1152 69.985C36.5513 72.2367 42.533 72.8258 48.3039 71.6779C54.0749 70.53 59.3758 67.6966 63.5364 63.536C67.697 59.3754 70.5304 54.0744 71.6784 48.3035C72.8263 42.5326 72.2371 36.5508 69.9854 31.1147C67.7337 25.6786 63.9206 21.0323 59.0282 17.7634C54.1359 14.4944 48.384 12.7496 42.5 12.7496V-0.000427246Z" fill="#54BBFF"/>
+                  </svg>          
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cards-row">
+        <div class="card" id="card-transparent">
+          <div class="card__wrapper">
+            <header class="card__header">
+              <h2 class="card__title">
+                <strong>Дебетовые карты</strong>
+              </h2>
+            </header>
+            <div class="card__body" id="chart-container">
+              <div class="stat">
+                <div class="stat__num">
+                  <span class="stat__num-percent">42% <span class="badge badge_up"></span></span> 
+                </div>
+                <div class="stat__diagram">
+                  <svg width="85" height="85" viewBox="0 0 85 85" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M85 42.4996C85 65.9717 65.9721 84.9996 42.5 84.9996C19.0279 84.9996 0 65.9717 0 42.4996C0 19.0275 19.0279 -0.000427246 42.5 -0.000427246C65.9721 -0.000427246 85 19.0275 85 42.4996ZM12.75 42.4996C12.75 58.93 26.0695 72.2496 42.5 72.2496C58.9305 72.2496 72.25 58.93 72.25 42.4996C72.25 26.0691 58.9305 12.7496 42.5 12.7496C26.0695 12.7496 12.75 26.0691 12.75 42.4996Z" fill="white"/>
+                    <path d="M42.5 -0.000427246C50.9057 -0.000427146 59.1226 2.49215 66.1117 7.16211C73.1008 11.8321 78.5482 18.4697 81.7649 26.2355C84.9816 34.0014 85.8232 42.5467 84.1834 50.7909C82.5435 59.0351 78.4958 66.6079 72.552 72.5516C66.6083 78.4953 59.0355 82.5431 50.7913 84.1829C42.5471 85.8228 34.0018 84.9812 26.236 81.7645C18.4701 78.5477 11.8325 73.1004 7.16254 66.1113C2.49258 59.1222 -2.00474e-07 50.9053 0 42.4996H12.75C12.75 48.3836 14.4948 54.1354 17.7638 59.0278C21.0328 63.9202 25.6791 67.7333 31.1152 69.985C36.5513 72.2367 42.533 72.8258 48.3039 71.6779C54.0749 70.53 59.3758 67.6966 63.5364 63.536C67.697 59.3754 70.5304 54.0744 71.6784 48.3035C72.8263 42.5326 72.2371 36.5508 69.9854 31.1147C67.7337 25.6786 63.9206 21.0323 59.0282 17.7634C54.1359 14.4944 48.384 12.7496 42.5 12.7496V-0.000427246Z" fill="#54BBFF"/>
+                  </svg>          
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card" id="card6">
+          <div class="card__wrapper">
+            <header class="card__header">
+              <h2 class="card__title">
+                Январь &#8594; <strong>Февраль</strong><br>
+              </h2>
+            </header>
+            <div class="card__body" id="c_body">
+              <div class="stat">
+                <div class="stat__num">
+                  <span class="stat__num-percent">-3% 
+                    <img src="img/arrow-down.svg" alt="">
+                  </span> 
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card" id="card7">
+          <div class="card__wrapper">
+            <header class="card__header">
+              <h2 class="card__title">
+                Динамика <strong>Февраля</strong><br>
+                к среднему за 3 месяца
+              </h2>
+            </header>
+            <div class="card__body" id="c_body">
+              <div class="stat">
+                <div class="stat__num">
+                  <span class="stat__num-percent">+3% <span class="badge badge_up"></span></span> 
                 </div>
               </div>
             </div>
@@ -478,6 +566,28 @@
       totalCustomers.textContent = "Клиенты в апреле";
     }
   }
+
+let selectedButton = null;
+
+function selectButton(button) {
+  if (selectedButton) {
+    selectedButton.classList.remove("selected");
+  }
+
+  button.classList.add("selected");
+  selectedButton = button;
+
+  const buttonText = button.innerText.trim();
+  let cards = document.querySelectorAll('.cards-row');
+    cards.forEach(function (card) {
+      var cardTitle = card.querySelector('.card__title').innerText.trim();
+      if (cardTitle === buttonText) {
+        card.style.display = 'block';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+}
   </script>
 </body>
 </html>
