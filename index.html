@@ -217,7 +217,7 @@
             <div class="card__wrapper">
               <header class="card__header">
                <h2 class="card__title">
-                <strong>Потребительские кредиты</strong>
+                <strong>Заявки от новых клиентов</strong>
                 </h2>
             </header>
             <div class="card__body" id="chart-container">
@@ -297,7 +297,7 @@
           <div class="card__wrapper">
             <header class="card__header">
               <h2 class="card__title">
-                <strong>Дебетовые карты</strong>
+                <strong>Конверсия из онлайн-заявки в выдачу продукта</strong>
               </h2>
             </header>
             <div class="card__body" id="chart-container">
@@ -587,17 +587,6 @@
 
     button.classList.add("selected");
     selectedButton = button;
-
-  const buttonText = button.innerText.trim();
-  let cards = document.querySelectorAll('.cards-row');
-    cards.forEach(function (card) {
-      var cardTitle = card.querySelector('.card__title').innerText.trim();
-      if (cardTitle === buttonText) {
-        card.style.display = 'block';
-      } else {
-        card.style.display = 'none';
-      }
-    });
 }
 
 // скрытие/ раскрытие сайтбара
