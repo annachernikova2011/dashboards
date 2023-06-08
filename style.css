@@ -287,6 +287,10 @@ margin-right: var(--common-margin);
   font-size: 16px;
 }
 
+.parentNode {
+  padding-bottom: 25px;
+}
+
 .sidebar__item a {
   text-decoration: none;
 }
@@ -313,9 +317,6 @@ margin-right: var(--common-margin);
   padding: 3px;
   margin-left: 7px;
   text-align: center;
-}
-
-.down {
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
 }
@@ -402,12 +403,28 @@ margin-right: var(--common-margin);
   font-weight: 600;
   margin-left: 30px;
 }
+
 .blue {
   color:#18A0FB
 }
+
 .yellow {
   color: #FF8F0C;
 }
+
 .violet {
   color:#5A56E9;
+}
+
+.sidebar__submenu {
+  display: none;
+}
+
+.sidebar__submenu.active {
+  display: block;
+  color: #FFFFFF;
+}
+
+.sidebar__item.text-color-active .sidebar__item__article {
+  color: white;
 }
