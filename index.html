@@ -15,7 +15,7 @@
 <body>
   <main class="main"> 
     <aside class="sidebar">
-      <button>
+      <button id="sidebar-toggle">
         <img src="img/arrow.svg" alt="">
       </button>
       <svg class="sidebar__logo" width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -554,6 +554,7 @@
     new Card('card7', card7Options).init();
     new Card('card8', card8Options).init();
 
+    // изменение содержимого в фиолетовой карточке
     function changeContent() {
     const formatSelect = document.getElementById("format");
     const totalCustomers = document.getElementById("card__text");
@@ -566,16 +567,17 @@
       totalCustomers.textContent = "Клиенты в апреле";
     }
   }
+  // при нажатии на кнопку изменяется цвет и
+  // фильтруется карточка по содержимому внутри нее
+  let selectedButton = null;
 
-let selectedButton = null;
+  function selectButton(button) {
+    if (selectedButton) {
+      selectedButton.classList.remove("selected");
+    }
 
-function selectButton(button) {
-  if (selectedButton) {
-    selectedButton.classList.remove("selected");
-  }
-
-  button.classList.add("selected");
-  selectedButton = button;
+    button.classList.add("selected");
+    selectedButton = button;
 
   const buttonText = button.innerText.trim();
   let cards = document.querySelectorAll('.cards-row');
@@ -588,6 +590,9 @@ function selectButton(button) {
       }
     });
 }
+
+// скрытие/ раскрытие сайтбара
+
   </script>
 </body>
 </html>

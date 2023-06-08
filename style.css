@@ -356,9 +356,6 @@ margin-right: var(--common-margin);
   border-radius: 2225px;
   border: none;
   padding: 10px 30px;
-}
-
-.cards__container button  {
   text-decoration: none;
   color: #858585 ;
   font-size: 20px;
