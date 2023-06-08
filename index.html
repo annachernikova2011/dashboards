@@ -39,37 +39,39 @@
               <ul class="sidebar__submenu">
                 <div>
                   <div class="sidebar__submenu--wrapper" >
+                    <div>
                     <li class="sidebar__item">
                       <a href="#">Потребительские кредиты
                         <i class="arrow"></i>
                       </a>
-                      <ul class="sidebar__submenu">
-                        <li class="sidebar__item">
+                      <ul class="sidebar__submenu ">
+                        <li class="sidebar__item nochild">
                           <a href="#">Эффективность онлайн-площадок</a>
                         </li>
-                        <li class="sidebar__item">
+                        <li class="sidebar__item nochild">
                           <a href="#">Выдача продуктов</a>
                         </li>
-                        <li class="sidebar__item">
+                        <li class="sidebar__item nochild">
                           <a href="#">Эффективность онлайн-банка</a>
                         </li>
                       </ul>
                     </li>
-                <li class="sidebar__item">
-                  <a href="#">Дебетовые карты
-                    <i class="arrow"></i>
-                  </a>
-                </li>
-                <li class="sidebar__item">
-                  <a href="#">Кредитные карты
-                    <i class="arrow"></i>
-                  </a>
-                </li>
-                <li class="sidebar__item">
-                  <a href="#">Ипотека
-                    <i class="arrow"></i>
-                  </a>
-                </li>
+                    <li class="sidebar__item">
+                      <a href="#">Дебетовые карты
+                        <i class="arrow"></i>
+                      </a>
+                    </li>
+                    <li class="sidebar__item">
+                      <a href="#">Кредитные карты
+                        <i class="arrow"></i>
+                      </a>
+                    </li>
+                    <li class="sidebar__item">
+                      <a href="#">Ипотека
+                        <i class="arrow"></i>
+                      </a>
+                    </li>
+                </div>
               </div>
             </div>
               </ul>
@@ -614,17 +616,18 @@ document.querySelector('.sidebar .sidebar-toggle').addEventListener('click' , fu
   document.querySelector('.sidebar').classList.toggle('active')
 })
 
-// 
-const arrows = document.querySelectorAll('.arrow');
 
 // скрытие/раскрытие дерева сайтбара
+const arrows = document.querySelectorAll('.arrow');
+
 arrows.forEach(arrow => {
-  arrow.addEventListener('click', () => {
+  arrow.addEventListener('click', (e) => {
     // Находим ближайший родительский элемент с классом "sidebar__item"
     const sidebarItem = arrow.closest('.sidebar__item');
     const submenu = sidebarItem.querySelector('.sidebar__submenu');
     submenu.classList.toggle('active');
-
+    arrow.classList.toggle('arrow-rotate');
+ 
     if (arrow === event.target) {
       sidebarItem.classList.toggle('text-color-active');
     }

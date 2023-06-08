@@ -318,11 +318,19 @@ margin-right: var(--common-margin);
   margin-left: 7px;
   text-align: center;
   transform: rotate(45deg);
-  -webkit-transform: rotate(45deg);
+  transition: transform 0.3s ease;
+}
+
+.arrow-rotate {
+  transform: rotate(225deg);
 }
 
 .sidebar__submenu--wrapper {
   margin: 24px 0 20px 30px;
+}
+
+.nochild {
+  margin-left: 24px;
 }
 
 .sidebar__item--wrapper{
