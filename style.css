@@ -84,6 +84,7 @@ strong {
   border-bottom-left-radius: 30px;
   padding: 56px 60px;
   width: calc(100% - 300px);
+  transition: .3s ease;
   
 }
 .cards__row--container {
@@ -579,13 +580,16 @@ margin-right: var(--common-margin);
   width: 90px;
   align-items: center;
 }
+
 .sidebar__hidden .sidebar__submenu{
   display: none;
 }
+
 .sidebar__hidden .sidebar__item--wrapper{
   display: block;
   width: 90px;
 }
+
 .sidebar__hidden .sidebar__item--wrapper svg{
   padding: 0;
    width: 23px;

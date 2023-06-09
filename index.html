@@ -627,7 +627,7 @@
       })
     }
 
-
+    // скрытие/раскрытие сайдбара
     const sideBar = document.querySelector('.sidebar');
     const toggleSidebar = document.getElementById('sidebar-toggle');
     const sideBarBtnArrow = document.querySelector('.sidebar-arrow');
@@ -660,12 +660,6 @@
     button.classList.add("selected");
     selectedButton = button;
 }
-
-// скрытие/ раскрытие сайтбара
-document.querySelector('.sidebar .sidebar-toggle').addEventListener('click' , function() {
-  document.querySelector('.sidebar').classList.toggle('active')
-})
-
 
 // скрытие/раскрытие дерева сайтбара
 const arrows = document.querySelectorAll('.arrow');
