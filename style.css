@@ -53,9 +53,11 @@ body {
   background-color: var(--dark-text);
   color: var(--card-background-light);
   display: flex;
+  position: relative;
   align-items: flex-start;
   flex-flow: column;
   padding: 48px 22px;
+  transition: .3s;
   /* position: fixed;
   left: -210px;
   transition: left 300ms ease-in-out; */
@@ -73,6 +75,8 @@ strong {
 }
 
 .cards-wrapper {
+  position: relative;
+  z-index: 10;
   display: flex;
   flex-flow: column;
   border-top-left-radius: 30px;
@@ -80,6 +84,7 @@ strong {
   border-bottom-left-radius: 30px;
   padding: 56px 60px;
   width: calc(100% - 300px);
+  
 }
 .cards__row--container {
   margin-top:33px
@@ -296,6 +301,7 @@ margin-right: var(--common-margin);
 }
 
 .sidebar__item__article {
+  white-space: nowrap;
   color: #7B78ED;
 }
 
@@ -324,7 +330,13 @@ margin-right: var(--common-margin);
 .arrow-rotate {
   transform: rotate(225deg);
 }
-
+.sidebar__submenu{
+  overflow: hidden;
+  position: relative;
+  opacity: 1;
+  width: 100%;
+  transition: .5s;
+}
 .sidebar__submenu--wrapper {
   margin: 24px 0 20px 30px;
 }
@@ -346,8 +358,9 @@ margin-right: var(--common-margin);
 
 .sidebar > button {
   position: absolute;
-  left: 285px;
+  right: -15px;
   top: 525px;
+  z-index: 12;
   border:none;
   border-radius: 50%;
   width: 30px;
@@ -439,6 +452,8 @@ margin-right: var(--common-margin);
 .sidebar__submenu.active {
   display: block;
   color: #FFFFFF;
+}
+.arrow{
 }
 
 .sidebar__item.text-color-active .sidebar__item__article {
@@ -548,7 +563,46 @@ margin-right: var(--common-margin);
   background-color: #5A56E9;
 }
 
+
+
 /* Sidebar */
 .sidebar__item .text-color-active > a {
   color: white;
+}
+
+.sidebar__hidden .sidebar__item__article{
+  display: none;
+  overflow: hidden;
+}
+
+.sidebar__hidden{
+  width: 90px;
+  align-items: center;
+}
+.sidebar__hidden .sidebar__submenu{
+  display: none;
+}
+.sidebar__hidden .sidebar__item--wrapper{
+  display: block;
+  width: 90px;
+}
+.sidebar__hidden .sidebar__item--wrapper svg{
+  padding: 0;
+   width: 23px;
+   height: 23px;
+   display: block;
+   margin: 0 auto;
+  }
+
+.cards-wrapper_fullscreen{
+  width: calc(100% - 90px);
+}
+
+#sidebar-toggle{
+  cursor: pointer;
+  background-color: #D0D0D0;
+}
+
+.sidebar-toggle_rotate{
+  transform: rotate(180deg);
 }

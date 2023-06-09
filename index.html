@@ -15,8 +15,8 @@
 <body>
   <main class="main"> 
     <aside class="sidebar">
-      <button class="sidebar-toggle">
-        <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <button id="sidebar-toggle" class="sidebar-toggle">
+        <svg class="sidebar-arrow" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect width="30" height="30" rx="15" transform="matrix(0 1 1 0 0 0)" fill="#EFEEF2"/>
           <path d="M11.8092 19.8173L11.8089 19.8171L11.8023 19.826C11.5953 20.105 11.6181 20.5008 11.8712 20.7538C12.1494 21.0321 12.6006 21.0321 12.8788 20.7538L18.1288 15.5038L18.1291 15.5041L18.1363 15.4958L18.1908 15.4327L18.1911 15.4329L18.1977 15.424C18.4047 15.145 18.3819 14.7492 18.1288 14.4962L12.8788 9.24619L12.8791 9.2459L12.8708 9.23871L12.8077 9.18425L12.8079 9.18394L12.799 9.17733C12.52 8.97028 12.1242 8.99314 11.8712 9.24619L11.8709 9.2459L11.8637 9.25423L11.8092 9.31732L11.8089 9.31705L11.8023 9.32596C11.5953 9.605 11.6181 10.0008 11.8712 10.2538C11.8712 10.2538 11.8712 10.2538 11.8712 10.2538L16.6171 15L11.8712 19.7462L11.8709 19.7459L11.8637 19.7542L11.8092 19.8173Z" fill="#858585" stroke="#858585" stroke-width="0.3"/>
           </svg>
@@ -81,7 +81,7 @@
                 <path d="M15.8895 0.333313C19.4933 0.333313 21.5 2.40998 21.5 5.96831V18.02C21.5 21.6366 19.4933 23.6666 15.8895 23.6666H6.11167C2.565 23.6666 0.5 21.6366 0.5 18.02V5.96831C0.5 2.40998 2.565 0.333313 6.11167 0.333313H15.8895ZM6.42667 16.3633C6.07667 16.3283 5.73833 16.4916 5.55167 16.795C5.365 17.0866 5.365 17.4716 5.55167 17.775C5.73833 18.0666 6.07667 18.2416 6.42667 18.195H15.5733C16.0388 18.1483 16.39 17.7505 16.39 17.285C16.39 16.8066 16.0388 16.41 15.5733 16.3633H6.42667ZM15.5733 11.0421H6.42667C5.92383 11.0421 5.51667 11.4516 5.51667 11.9533C5.51667 12.455 5.92383 12.8633 6.42667 12.8633H15.5733C16.075 12.8633 16.4833 12.455 16.4833 11.9533C16.4833 11.4516 16.075 11.0421 15.5733 11.0421ZM9.91383 5.75831H6.42667V5.76998C5.92383 5.76998 5.51667 6.17831 5.51667 6.67998C5.51667 7.18165 5.92383 7.58998 6.42667 7.58998H9.91383C10.4167 7.58998 10.825 7.18165 10.825 6.66715C10.825 6.16665 10.4167 5.75831 9.91383 5.75831Z" fill="#7B78ED"/>
                 </svg>
               <li class="sidebar__item">
-                <a class="sidebar__item__article" href="#">Малый и средний бизнес</a>
+                <a class="sidebar__item__article" href="#">Малый и средний <br/> бизнес</a>
               </li>
             </div>
             </ul>
@@ -97,7 +97,7 @@
             <div class="select__month">
               <div id="select-month" class="selected__month">
                 <span id="format" onchange="changeContent()">февраль</span>
-                <svg class="select__arrow" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" fill="#000000" transform="rotate(180)"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path fill="#5A56E9" d="M104.704 338.752a64 64 0 0 1 90.496 0l316.8 316.8 316.8-316.8a64 64 0 0 1 90.496 90.496L557.248 791.296a64 64 0 0 1-90.496 0L104.704 429.248a64 64 0 0 1 0-90.496z"></path></g></svg>
+                <svg class="select__arrow" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path fill="#5A56E9" d="M104.704 338.752a64 64 0 0 1 90.496 0l316.8 316.8 316.8-316.8a64 64 0 0 1 90.496 90.496L557.248 791.296a64 64 0 0 1-90.496 0L104.704 429.248a64 64 0 0 1 0-90.496z"></path></g></svg>
               </div>
               <ul id="select__list" class="select__list">
                 <li class="select__option select__option__active">Февраль</li>
@@ -601,7 +601,7 @@
     const selectMonth = document.getElementById('select-month');
     const selectMonthList = document.getElementById('select__list');
     let isMonthList = false;
-
+ 
      //# переключение стилей при выборе месяца
     function handleOnClickSelectMonth() {
         selectMonthIcon.classList.toggle('select__arrow__rotate')
@@ -609,7 +609,7 @@
     }
     selectMonth.addEventListener('click', handleOnClickSelectMonth);
 
-    //# изменение содержимого в фиолетовой карточке
+    //# изменение содержимого / переключение опций
     function changeContent(option, idx) {
       const totalCustomers = document.getElementById("card__text");
       totalCustomers.textContent = `Клиенты в ${months[idx]}`;
@@ -627,6 +627,21 @@
       })
     }
 
+
+    const sideBar = document.querySelector('.sidebar');
+    const toggleSidebar = document.getElementById('sidebar-toggle');
+    const sideBarBtnArrow = document.querySelector('.sidebar-arrow');
+    const mainBlock = document.querySelector('.cards-wrapper')
+    
+    function handleOnToggleSidebar() {
+      mainBlock.classList.toggle('cards-wrapper_fullscreen')
+      sideBarBtnArrow.classList.toggle('select__arrow__rotate');
+      sideBar.classList.toggle('sidebar__hidden');
+    }
+
+    toggleSidebar.addEventListener('click', handleOnToggleSidebar);
+
+    //# опция по умолчанию
     changeContent('setDefault', 0)
 
     optionsItems.forEach((option, index) => {
