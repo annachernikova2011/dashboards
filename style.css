@@ -96,7 +96,7 @@ strong {
   background-color: var(--cards-layer-background-light);
   border-radius: 30px;
   display: flex;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
   justify-content: flex-start;
   /* margin-bottom: var(--common-margin); */
   padding: var(--common-padding);
@@ -613,4 +613,14 @@ margin-right: var(--common-margin);
 
 .sidebar-toggle_rotate{
   transform: rotate(180deg);
+}
+
+
+.non-transparent {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card__title-transparent{
+  align-self: flex-start;
 }
