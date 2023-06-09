@@ -90,14 +90,22 @@
     
         <div class="cards-wrapper" id="app-root">
           <!-- Темная строка с картами -->
-          <span class="card__select">
-            Розничный бизнес за
-            <select name="format" id="format" onchange="changeContent()">
-              <option>февраль</option>
-              <option>март</option>
-              <option>апрель</option>
-            </select>
-          </span>
+          <div class="card__select">
+            <div class="card__select__text">
+              Розничный бизнес за
+            </div>
+            <div class="select__month">
+              <div id="select-month" class="selected__month">
+                <span id="format" onchange="changeContent()">февраль</span>
+                <svg class="select__arrow" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" fill="#000000" transform="rotate(180)"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path fill="#5A56E9" d="M104.704 338.752a64 64 0 0 1 90.496 0l316.8 316.8 316.8-316.8a64 64 0 0 1 90.496 90.496L557.248 791.296a64 64 0 0 1-90.496 0L104.704 429.248a64 64 0 0 1 0-90.496z"></path></g></svg>
+              </div>
+              <ul id="select__list" class="select__list">
+                <li class="select__option select__option__active">Февраль</li>
+                <li class="select__option">Январь</li>
+                <li class="select__option">Декабрь</li>
+              </ul>
+            </div>
+          </div>
       <!-- Темная строка с картами -->
       <div class="cards-row" id="cards_row">
         <div class="card" id="card1">
@@ -467,8 +475,8 @@
 
     option && myChart.setOption(option);
   </script>
+  
   <script>
-
   //Опции стилей для каждой карточки (1-8) 
 
     card1Options = {
@@ -585,19 +593,46 @@
     new Card('card7', card7Options).init();
     new Card('card8', card8Options).init();
 
-    // изменение содержимого в фиолетовой карточке
-    function changeContent() {
-    const formatSelect = document.getElementById("format");
-    const totalCustomers = document.getElementById("card__text");
+    //# select с месяцами и выбором
+    const optionsItems = document.querySelectorAll('.select__option');
+    const months = ['феврале', 'январе', 'декабре'];
+    const formatMonth = document.getElementById('format');
+    const selectMonthIcon = document.querySelector('.select__arrow');
+    const selectMonth = document.getElementById('select-month');
+    const selectMonthList = document.getElementById('select__list');
+    let isMonthList = false;
 
-    if (formatSelect.value === "февраль") {
-      totalCustomers.textContent = "Клиенты в феврале";
-    } else if (formatSelect.value === "март") {
-      totalCustomers.textContent = "Клиенты в марте";
-    } else if (formatSelect.value === "апрель") {
-      totalCustomers.textContent = "Клиенты в апреле";
+     //# переключение стилей при выборе месяца
+    function handleOnClickSelectMonth() {
+        selectMonthIcon.classList.toggle('select__arrow__rotate')
+        selectMonthList.classList.toggle('select__list__open');
     }
-  }
+    selectMonth.addEventListener('click', handleOnClickSelectMonth);
+
+    //# изменение содержимого в фиолетовой карточке
+    function changeContent(option, idx) {
+      const totalCustomers = document.getElementById("card__text");
+      totalCustomers.textContent = `Клиенты в ${months[idx]}`;
+      optionsItems.forEach((item, currIdx) => {
+        if (idx === currIdx) {
+          if (option != 'setDefault') {
+            selectMonthList.classList.toggle('select__list__open')
+          }
+          formatMonth.textContent = item.textContent.toLowerCase();
+          item.classList.add('select__option__active');
+        }
+        else {
+          item.classList.remove('select__option__active');
+        }
+      })
+    }
+
+    changeContent('setDefault', 0)
+
+    optionsItems.forEach((option, index) => {
+      option.addEventListener('click', () => changeContent(option, index))
+    })
+
   // при нажатии на кнопку изменяется цвет и
   // фильтруется карточка по содержимому внутри нее
   let selectedButton = null;
@@ -621,13 +656,19 @@ document.querySelector('.sidebar .sidebar-toggle').addEventListener('click' , fu
 const arrows = document.querySelectorAll('.arrow');
 
 arrows.forEach(arrow => {
+  //# ищем все стрелки
+  // Находим ближайший родительский элемент с классом "sidebar__item"
+  const sidebarItem = arrow.closest('.sidebar__item');
+  const submenu = sidebarItem.querySelector('.sidebar__submenu');
+  //# если в submenu пусто (null), убираем стрелку
+  if(!submenu){
+    arrow.style.display = 'none';
+  }
   arrow.addEventListener('click', (e) => {
-    // Находим ближайший родительский элемент с классом "sidebar__item"
-    const sidebarItem = arrow.closest('.sidebar__item');
-    const submenu = sidebarItem.querySelector('.sidebar__submenu');
+    //# при click задаём класс active
     submenu.classList.toggle('active');
     arrow.classList.toggle('arrow-rotate');
- 
+  
     if (arrow === event.target) {
       sidebarItem.classList.toggle('text-color-active');
     }
