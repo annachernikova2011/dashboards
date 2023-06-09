@@ -240,6 +240,10 @@ margin-right: var(--common-margin);
   line-height: 29px;
 }
 
+.main-title {
+  margin-bottom: 55px;
+}
+
 .badge {
   display: flex;
   justify-content: center;
