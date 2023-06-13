@@ -126,7 +126,7 @@
         </div>
         <div class="non-transparent">
 
-          <div class="card" id="card2">
+          <!-- <div class="card" id="card2">
             <div class="card__wrapper ">
               <header class="card__header">
                 <h2 class="card__title">
@@ -144,13 +144,12 @@
                     <span class="stat__num-quantity quantity">750 000</span>
                   </div>
                   <div class="stat__diagram">
-                    <div id="main" ></div>       
+                    <div id="main2" ></div>       
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-
+          </div> 
         <div class="card" id="card3">
           <div class="card__wrapper">
             <header class="card__header">
@@ -174,8 +173,8 @@
               </div>
             </div>
           </div>
-        </div>
-        <div class="card" id="card4">
+        </div>  
+         <div class="card" id="card4">
           <div class="card__wrapper">
             <header class="card__header">
               <h2 class="card__title">
@@ -198,7 +197,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div>  -->
       </div>
       </div>
       <!-- Светлая строка с картами -->
@@ -428,61 +427,6 @@
 
   <script src="https://fastly.jsdelivr.net/npm/echarts@5.4.2/dist/echarts.min.js"></script>  
   <script src="script.js"></script>
-  <script>
-
-     // Числовые переменные для верхней строки (темной)
-     let card1Num = document.querySelector('#card1 .main-value'),
-        card2Num = document.getElementById('num2').textContent,
-        card2quantity = document.querySelector('#card2 .quantity').textContent = '750000',
-        card3Num = document.querySelector('#card3 .main-value'),
-        card3quantity = document.querySelector('#card3 .quantity'),
-        card4Num = document.querySelector('#card4 .main-value'),
-        card4quantity = document.querySelector('#card4 .quantity');
-
-    var chartDom = document.getElementById('main');
-    var myChart = echarts.init(chartDom);
-    var option;
-
-    option = {
-      tooltip: {
-        trigger: 'item'
-      },
-      legend: {
-        show: false,
-        top: '5%',
-        left: 'center'
-      },
-      series: [
-        {
-          color: ['#54BBFF', '#cccccc'], 
-          name: 'тест',
-          type: 'pie',
-          radius: ['65%', '90%'],
-          avoidLabelOverlap: false,
-          label: {
-            show: false,
-            position: 'center'
-          },
-          emphasis: {
-            label: {
-              show: false,
-              fontSize: 16,
-              fontWeight: 'medium'
-            }
-          },
-          labelLine: {
-            show: false
-          },
-          data: [
-          { value: (card2quantity * card2Num) / 100, name: 'Активные' },
-          { value: card2quantity, name: 'Всего' },
-          ]
-        }
-      ]
-    };
-
-    option && myChart.setOption(option);
-  </script>
   
   <script>
   //Опции стилей для каждой карточки (1-8) 
@@ -593,15 +537,15 @@
 
     //Инициализация каждой карты (указываем id и опции)
     new Card('card1', card1Options).init();
-    new Card('card2', card2Options).init();
-    new Card('card3', card3Options).init();
-    new Card('card4', card4Options).init();
+    // new Card('card2', card2Options).init();
+    // new Card('card3', card3Options).init();
+    // new Card('card4', card4Options).init();
     new Card('card5', card5Options).init();
     new Card('card6', card6Options).init();
     new Card('card7', card7Options).init();
     new Card('card8', card8Options).init();
 
-    //# select с месяцами и выбором
+    // select с месяцами и выбором
     const optionsItems = document.querySelectorAll('.select__option');
     const months = ['феврале', 'январе', 'декабре'];
     const formatMonth = document.getElementById('format');
@@ -610,14 +554,14 @@
     const selectMonthList = document.getElementById('select__list');
     let isMonthList = false;
  
-     //# переключение стилей при выборе месяца
+     // переключение стилей при выборе месяца
     function handleOnClickSelectMonth() {
         selectMonthIcon.classList.toggle('select__arrow__rotate')
         selectMonthList.classList.toggle('select__list__open');
     }
     selectMonth.addEventListener('click', handleOnClickSelectMonth);
 
-    //# изменение содержимого / переключение опций
+    // изменение содержимого / переключение опций
     function changeContent(option, idx) {
       const totalCustomers = document.getElementById("card__text");
       totalCustomers.textContent = `Клиенты в ${months[idx]}`;
@@ -649,7 +593,7 @@
 
     toggleSidebar.addEventListener('click', handleOnToggleSidebar);
 
-    //# опция по умолчанию
+    // опция по умолчанию
     changeContent('setDefault', 0)
 
     optionsItems.forEach((option, index) => {
@@ -673,11 +617,10 @@
 const arrows = document.querySelectorAll('.arrow');
 
 arrows.forEach(arrow => {
-  //# ищем все стрелки
   // Находим ближайший родительский элемент с классом "sidebar__item"
   const sidebarItem = arrow.closest('.sidebar__item');
   const submenu = sidebarItem.querySelector('.sidebar__submenu');
-  //# если в submenu пусто (null), убираем стрелку
+  // если в submenu пусто (null), убираем стрелку
   if(!submenu){
     arrow.style.display = 'none';
   }
@@ -692,53 +635,60 @@ arrows.forEach(arrow => {
   });
 });
 
-// создание карточек
-for (let i = 0 ; i < 3 ; i ++) {
-  const card = document.createElement('div');
+// создание карточек c диаграмой
+for (let i = 2 ; i < 5 ; i ++) {
+  var card = document.createElement('div');
   card.className = 'card'
-
-  const cardWrapper = document.createElement('div');
+  card.id = `card${i}`
+  
+  var cardWrapper = document.createElement('div');
   cardWrapper.className = 'card__wrapper'
 
-  const cardHeader = document.createElement('header');
+  var cardHeader = document.createElement('header');
   cardHeader.className = 'card__header'
 
-  const cardH2 = document.createElement('h2');
+  var cardH2 = document.createElement('h2');
   cardH2.className = 'card__title'
   cardH2.textContent = 'Активные клиенты'
 
-  const cardBody = document.createElement('div');
+  var cardBody = document.createElement('div');
   cardBody.className = 'card__body'
 
-  const stat = document.createElement('div');
+  var stat = document.createElement('div');
   stat.className = 'stat'
 
-  const statNum = document.createElement('div');
+  var statNum = document.createElement('div');
   statNum.className = 'stat__num'
 
-  const statNumPercent = document.createElement('span');
+  var statNumPercent = document.createElement('span');
   statNumPercent.classList.add('stat__num-percent')
   statNumPercent.classList.add('main-value')
 
-  const numPercent = document.createElement('span')
+  var numPercent = document.createElement('span')
+  numPercent.id = `num${i}`
   numPercent.textContent = '75'
 
-  const percent = document.createElement('span');
+  var percent = document.createElement('span');
   percent.textContent = '%'
 
-  const badge = document.createElement('span');
+  var badge = document.createElement('span');
   badge.classList.add('badge')
   badge.classList.add('badge_up')
   badge.classList.add('badge_num')
   badge.textContent = '3'
 
-  const statNumQuantity = document.createElement('span');
+  var statNumQuantity = document.createElement('span');
   statNumQuantity.classList.add('stat__num-quantity')
   statNumQuantity.classList.add('quantity')
   statNumQuantity.textContent = '750 000'
 
-  const statDiagram = document.createElement('div');
+  var statDiagram = document.createElement('div');
   statDiagram.className = 'stat__diagram'
+
+  var statDiagramDiv = document.createElement('div');
+  statDiagramDiv.id = `main${i}`
+  statDiagramDiv.style.height = '100px'
+  statDiagramDiv.style.width = '100px'
 
   statNumPercent.appendChild(numPercent)
   statNumPercent.appendChild(percent)
@@ -746,6 +696,8 @@ for (let i = 0 ; i < 3 ; i ++) {
 
   statNum.appendChild(statNumPercent)
   statNum.appendChild(statNumQuantity)
+
+  statDiagram.appendChild(statDiagramDiv)
 
   stat.appendChild(statNum)
   stat.appendChild(statDiagram)
@@ -759,10 +711,75 @@ for (let i = 0 ; i < 3 ; i ++) {
 
   card.appendChild(cardWrapper)
 
-  const nonTransparent = document.querySelector('.non-transparent')
+  var nonTransparent = document.querySelector('.non-transparent')
   nonTransparent.appendChild(card)
 }
-
   </script>
+
+<script>
+
+  // Числовые переменные для верхней строки (темной)
+  let card1Num = document.querySelector('#card1 .main-value'),
+     card2Num = document.getElementById('num2').textContent,
+     card2quantity = document.querySelector('#card2 .quantity').textContent = '750000',
+     card3Num = document.querySelector('#card3 .main-value'),
+     card3quantity = document.querySelector('#card3 .quantity'),
+     card4Num = document.querySelector('#card4 .main-value'),
+     card4quantity = document.querySelector('#card4 .quantity');
+
+    
+ var chartDom = document.getElementById('main2');
+ var chartDom3 = document.getElementById('main3');
+ var chartDom4 = document.getElementById('main4');
+
+ var myChart = echarts.init(chartDom);
+ var myChart3 = echarts.init(chartDom3);
+ var myChart4 = echarts.init(chartDom4);
+
+ var option;
+
+ option = {
+   tooltip: {
+     trigger: 'item'
+   },
+   legend: {
+     show: false,
+     top: '5%',
+     left: 'center'
+   },
+   series: [
+     {
+       color: ['#54BBFF', '#cccccc'], 
+       name: 'тест',
+       type: 'pie',
+       radius: ['65%', '90%'],
+       avoidLabelOverlap: false,
+       label: {
+         show: false,
+         position: 'center'
+       },
+       emphasis: {
+         label: {
+           show: false,
+           fontSize: 16,
+           fontWeight: 'medium'
+         }
+       },
+       labelLine: {
+         show: false
+       },
+       data: [
+       { value: (card2quantity * card2Num) / 100, name: 'Активные' },
+       { value: card2quantity, name: 'Всего' },
+       ]
+     }
+   ]
+ };
+
+ option && myChart.setOption(option) 
+ option && myChart3.setOption(option)
+ option && myChart4.setOption(option)
+
+</script>
 </body>
 </html>
