@@ -136,38 +136,21 @@
               <div class="card__body" id="c_body">
                 <div class="stat">
                   <div class="stat__num">
-                    <span class="stat__num-percent main-value"><span id="num2">75</span>% <span class="badge badge_up badge_num">3</span></span> 
+                    <span class="stat__num-percent main-value">
+                      <span id="num2">75</span>
+                      <span>%</span> 
+                      <span class="badge badge_up badge_num">3</span>
+                    </span> 
                     <span class="stat__num-quantity quantity">750 000</span>
                   </div>
                   <div class="stat__diagram">
-                    <div id="main" style="width: 100px;height: 100px;"></div>       
+                    <div id="main" ></div>       
                   </div>
                 </div>
               </div>
             </div>
           </div>
 
-
-        <div class="card" id="card2">
-          <div class="card__wrapper">
-            <header class="card__header">
-              <h2 class="card__title">
-                Активные клиенты
-              </h2>
-            </header>
-            <div class="card__body" id="c_body">
-              <div class="stat">
-                <div class="stat__num">
-                  <span class="stat__num-percent main-value"><span id="num2">75</span>% <span class="badge badge_up badge_num">3</span></span> 
-                  <span class="stat__num-quantity quantity">750 000</span>
-                </div>
-                <div class="stat__diagram">
-                  <div id="main" style="width: 100px;height: 100px;"></div>       
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
         <div class="card" id="card3">
           <div class="card__wrapper">
             <header class="card__header">
@@ -708,6 +691,77 @@ arrows.forEach(arrow => {
     }
   });
 });
+
+// создание карточек
+for (let i = 0 ; i < 3 ; i ++) {
+  const card = document.createElement('div');
+  card.className = 'card'
+
+  const cardWrapper = document.createElement('div');
+  cardWrapper.className = 'card__wrapper'
+
+  const cardHeader = document.createElement('header');
+  cardHeader.className = 'card__header'
+
+  const cardH2 = document.createElement('h2');
+  cardH2.className = 'card__title'
+  cardH2.textContent = 'Активные клиенты'
+
+  const cardBody = document.createElement('div');
+  cardBody.className = 'card__body'
+
+  const stat = document.createElement('div');
+  stat.className = 'stat'
+
+  const statNum = document.createElement('div');
+  statNum.className = 'stat__num'
+
+  const statNumPercent = document.createElement('span');
+  statNumPercent.classList.add('stat__num-percent')
+  statNumPercent.classList.add('main-value')
+
+  const numPercent = document.createElement('span')
+  numPercent.textContent = '75'
+
+  const percent = document.createElement('span');
+  percent.textContent = '%'
+
+  const badge = document.createElement('span');
+  badge.classList.add('badge')
+  badge.classList.add('badge_up')
+  badge.classList.add('badge_num')
+  badge.textContent = '3'
+
+  const statNumQuantity = document.createElement('span');
+  statNumQuantity.classList.add('stat__num-quantity')
+  statNumQuantity.classList.add('quantity')
+  statNumQuantity.textContent = '750 000'
+
+  const statDiagram = document.createElement('div');
+  statDiagram.className = 'stat__diagram'
+
+  statNumPercent.appendChild(numPercent)
+  statNumPercent.appendChild(percent)
+  statNumPercent.appendChild(badge)
+
+  statNum.appendChild(statNumPercent)
+  statNum.appendChild(statNumQuantity)
+
+  stat.appendChild(statNum)
+  stat.appendChild(statDiagram)
+
+  cardBody.appendChild(stat)
+
+  cardHeader.appendChild(cardH2)
+
+  cardWrapper.appendChild(cardHeader)
+  cardWrapper.appendChild(cardBody)
+
+  card.appendChild(cardWrapper)
+
+  const nonTransparent = document.querySelector('.non-transparent')
+  nonTransparent.appendChild(card)
+}
 
   </script>
 </body>
