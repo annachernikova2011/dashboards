@@ -144,6 +144,16 @@ strong {
   min-width: 345px;
   padding: var(--common-padding);
 }
+.cardd {
+  align-items: flex-start;
+  background: var(--card-background-light);
+  border-radius: 20px;
+  display: flex;
+  flex-flow: column;
+  min-height: 260px;
+  min-width: 345px;
+  padding: var(--common-padding);
+}
 
 @media screen and (max-width: 1920px) {
   .card {

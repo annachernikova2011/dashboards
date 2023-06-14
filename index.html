@@ -125,7 +125,12 @@
           </div>
         </div>
         <div class="non-transparent">
-
+          <div class="card">
+          </div>
+          <div class="card">
+          </div>
+          <div class="card">
+          </div> 
           <!-- <div class="card" id="card2">
             <div class="card__wrapper ">
               <header class="card__header">
@@ -240,8 +245,8 @@
         </div>
       <div class="cards__row--container">
         <div class="cards-row">
-          <div class="card" id="card5">
-            <div class="card__wrapper">
+          <div class="card card__title-transparent card_transparent">
+            <!-- <div class="card__wrapper">
               <header class="card__header">
                <h2 class="card__title">
                 <strong>Заявки от новых клиентов</strong>
@@ -260,7 +265,7 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
         </div>
         <div class="card" id="card6">
           <div class="card__wrapper">
@@ -540,7 +545,7 @@
     // new Card('card2', card2Options).init();
     // new Card('card3', card3Options).init();
     // new Card('card4', card4Options).init();
-    new Card('card5', card5Options).init();
+    // new Card('card5', card5Options).init();
     new Card('card6', card6Options).init();
     new Card('card7', card7Options).init();
     new Card('card8', card8Options).init();
@@ -625,7 +630,7 @@ arrows.forEach(arrow => {
     arrow.style.display = 'none';
   }
   arrow.addEventListener('click', (e) => {
-    //# при click задаём класс active
+    // при click задаём класс active
     submenu.classList.toggle('active');
     arrow.classList.toggle('arrow-rotate');
   
@@ -635,12 +640,9 @@ arrows.forEach(arrow => {
   });
 });
 
-// создание карточек c диаграмой
-for (let i = 2 ; i < 5 ; i ++) {
-  var card = document.createElement('div');
-  card.className = 'card'
-  card.id = `card${i}`
-  
+// карточка c диаграмой 
+function cardWithDiagrammaAndQuantity() {
+
   var cardWrapper = document.createElement('div');
   cardWrapper.className = 'card__wrapper'
 
@@ -665,7 +667,7 @@ for (let i = 2 ; i < 5 ; i ++) {
   statNumPercent.classList.add('main-value')
 
   var numPercent = document.createElement('span')
-  numPercent.id = `num${i}`
+  numPercent.className = "num2"
   numPercent.textContent = '75'
 
   var percent = document.createElement('span');
@@ -680,13 +682,13 @@ for (let i = 2 ; i < 5 ; i ++) {
   var statNumQuantity = document.createElement('span');
   statNumQuantity.classList.add('stat__num-quantity')
   statNumQuantity.classList.add('quantity')
-  statNumQuantity.textContent = '750 000'
+  statNumQuantity.textContent = '750000'
 
   var statDiagram = document.createElement('div');
   statDiagram.className = 'stat__diagram'
 
   var statDiagramDiv = document.createElement('div');
-  statDiagramDiv.id = `main${i}`
+  statDiagramDiv.className = 'diagram'
   statDiagramDiv.style.height = '100px'
   statDiagramDiv.style.width = '100px'
 
@@ -708,33 +710,108 @@ for (let i = 2 ; i < 5 ; i ++) {
 
   cardWrapper.appendChild(cardHeader)
   cardWrapper.appendChild(cardBody)
-
-  card.appendChild(cardWrapper)
-
-  var nonTransparent = document.querySelector('.non-transparent')
-  nonTransparent.appendChild(card)
+  
+  initDiagramma(cardWrapper)
+  return cardWrapper;
 }
-  </script>
 
-<script>
+function cardWithDiagramma() {
+  var cardWrapper = document.createElement('div');
+  cardWrapper.className = 'card__wrapper'
 
+  var cardHeader = document.createElement('header');
+  cardHeader.className = 'card__header'
+
+  var cardH2 = document.createElement('h2');
+  cardH2.className = 'card__title'
+  cardH2.textContent = 'Активные клиенты'
+
+  var cardBody = document.createElement('div');
+  cardBody.className = 'card__body'
+
+  var stat = document.createElement('div');
+  stat.className = 'stat'
+
+  var statNum = document.createElement('div');
+  statNum.className = 'stat__num'
+
+  var statNumPercent = document.createElement('span');
+  statNumPercent.classList.add('stat__num-percent')
+  statNumPercent.classList.add('main-value')
+
+  var numPercent = document.createElement('span')
+  numPercent.className = "num2"
+  numPercent.textContent = '75'
+
+  var percent = document.createElement('span');
+  percent.textContent = '%'
+
+  var badge = document.createElement('span');
+  badge.classList.add('badge')
+  badge.classList.add('badge_up')
+  badge.classList.add('badge_num')
+  badge.textContent = '3'
+
+  var statDiagram = document.createElement('div');
+  statDiagram.className = 'stat__diagram'
+
+  var statDiagramDiv = document.createElement('div');
+  statDiagramDiv.className = 'diagram'
+  statDiagramDiv.style.height = '100px'
+  statDiagramDiv.style.width = '100px'
+
+  statNumPercent.appendChild(numPercent)
+  statNumPercent.appendChild(percent)
+  statNumPercent.appendChild(badge)
+
+  statNum.appendChild(statNumPercent)
+  statDiagram.appendChild(statDiagramDiv)
+
+  stat.appendChild(statNum)
+  stat.appendChild(statDiagram)
+
+  cardBody.appendChild(stat)
+
+  cardHeader.appendChild(cardH2)
+
+  cardWrapper.appendChild(cardHeader)
+  cardWrapper.appendChild(cardBody)
+  
+  initDiagramma(cardWrapper)
+  return cardWrapper;
+}
+  // добавим ее на фиолетовую карточку
+  var nonTransparent = document.querySelector('.non-transparent')
+  var cards = nonTransparent.querySelectorAll('.card');
+  for (let i = 0; i < cards.length; i ++) {
+    cards[i].appendChild(cardWithDiagrammaAndQuantity())
+  }
+
+  // если хотим добавить карточку с диаграммой на прозрачном фоне
+  // "эффективность оналйн площадок"
+  var cardsContainer = document.querySelector('.cards__container')
+  var cardsRow = cardsContainer.querySelector('.cards-row')
+  var transparent = cardsRow.querySelector('.card_transparent')
+  transparent.appendChild(cardWithDiagramma())
+
+  function initDiagramma(elem) {
   // Числовые переменные для верхней строки (темной)
-  let card1Num = document.querySelector('#card1 .main-value'),
-     card2Num = document.getElementById('num2').textContent,
-     card2quantity = document.querySelector('#card2 .quantity').textContent = '750000',
-     card3Num = document.querySelector('#card3 .main-value'),
-     card3quantity = document.querySelector('#card3 .quantity'),
-     card4Num = document.querySelector('#card4 .main-value'),
-     card4quantity = document.querySelector('#card4 .quantity');
+  
+  let card1Num = elem.querySelector('#card1 .main-value'),
+     card2Num = elem.querySelector('.num2').textContent;
+    //  var statNumQuantity = document.createElement('span');
+     card2quantity = document.querySelector('.stat__num-quantity').textContent = '750000';
+   
+    //  card3Num = document.querySelector('#card3 .main-value'),
+    //  card3quantity = document.querySelector('#card3 .quantity'),
+    //  card4Num = document.querySelector('#card4 .main-value'),
+    //  card4quantity = document.querySelector('#card4 .quantity');
 
-    
- var chartDom = document.getElementById('main2');
- var chartDom3 = document.getElementById('main3');
- var chartDom4 = document.getElementById('main4');
-
+    // statNumQuantity.classList.add('stat__num-quantity')
+    //   statNumQuantity.classList.add('quantity')
+    //   card2quantity = statNumQuantity.textContent = '750000'
+ var chartDom = elem.querySelector('.diagram');
  var myChart = echarts.init(chartDom);
- var myChart3 = echarts.init(chartDom3);
- var myChart4 = echarts.init(chartDom4);
 
  var option;
 
@@ -776,9 +853,8 @@ for (let i = 2 ; i < 5 ; i ++) {
    ]
  };
 
- option && myChart.setOption(option) 
- option && myChart3.setOption(option)
- option && myChart4.setOption(option)
+  option && myChart.setOption(option) 
+}
 
 </script>
 </body>
