@@ -268,7 +268,7 @@
           </div> -->
         </div>
         <div class="card" id="card6">
-          <div class="card__wrapper">
+          <!-- <div class="card__wrapper">
             <header class="card__header">
               <h2 class="card__title">
                 Январь &#8594; <strong>Февраль</strong><br>
@@ -277,11 +277,12 @@
             <div class="card__body" id="c_body">
               <div class="stat">
                 <div class="stat__num">
-                  <span class="stat__num-percent">+5% <span class="badge badge_up"></span></span> 
+                  <span class="stat__num-percent">+5% <span class="badge badge_up"></span>
+                  </span> 
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
         </div>
         <div class="card" id="card7">
           <div class="card__wrapper">
@@ -322,6 +323,7 @@
               </div>
             </div>
           </div>
+
         </div>
       </div>
       <div class="cards-row">
@@ -780,6 +782,60 @@ function cardWithDiagramma() {
   initDiagramma(cardWrapper)
   return cardWrapper;
 }
+
+function cardTitle() {
+  var cardWrapper = document.createElement('div');
+  cardWrapper.className = 'card__wrapper'
+
+  var cardHeader = document.createElement('header');
+  cardHeader.className = 'card__header'
+
+  var cardH2 = document.createElement('h2');
+  cardH2.className = 'card__title'
+  cardH2.innerHTML = 'Январь &#8594;'
+
+  var strong = document.createElement('strong')
+  strong.textContent = " Февраль"
+
+  var cardBody = document.createElement('div');
+  cardBody.className = 'card__body'
+
+  var stat = document.createElement('div');
+  stat.className = 'stat'
+
+  var statNum = document.createElement('div');
+  statNum.className = 'stat__num'
+
+  var statNumPercent = document.createElement('span');
+  statNumPercent.classList.add('stat__num-percent')
+  statNumPercent.textContent = "+5%"
+
+  var badge = document.createElement('span');
+  badge.classList.add('badge')
+  badge.classList.add('badge_up')
+  badge.classList.add('badge_num')
+
+  statNum.appendChild(statNumPercent)
+  statNumPercent.appendChild(badge)
+
+  stat.appendChild(statNum)
+
+  cardBody.appendChild(stat)
+
+  cardH2.appendChild(strong)
+  cardHeader.appendChild(cardH2)
+
+  cardWrapper.appendChild(cardHeader)
+  cardWrapper.appendChild(cardBody)
+  
+  return cardWrapper;
+}
+
+function cardWith() {
+  var svg = document.createElement('svg')
+
+}
+
   // добавим ее на фиолетовую карточку
   var nonTransparent = document.querySelector('.non-transparent')
   var cards = nonTransparent.querySelectorAll('.card');
@@ -794,12 +850,22 @@ function cardWithDiagramma() {
   var transparent = cardsRow.querySelector('.card_transparent')
   transparent.appendChild(cardWithDiagramma())
 
+  // белая карточка "эффективность оналйн площадок"
+  var cardWithTitle = document.getElementById('card6')
+  cardWithTitle.appendChild(cardTitle())
+
+
+  // карточка с графиками
+  // var cardWithTitle8 = document.getElementById('card8')
+
+
+
+
   function initDiagramma(elem) {
   // Числовые переменные для верхней строки (темной)
   
   let card1Num = elem.querySelector('#card1 .main-value'),
      card2Num = elem.querySelector('.num2').textContent;
-    //  var statNumQuantity = document.createElement('span');
      card2quantity = document.querySelector('.stat__num-quantity').textContent = '750000';
    
     //  card3Num = document.querySelector('#card3 .main-value'),
